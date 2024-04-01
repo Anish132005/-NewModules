@@ -1,0 +1,114 @@
+package in.com.rays.test;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import in.com.rays.bean.ProgressBean;
+import in.com.rays.model.ProgressModel;
+
+public class progressTest {
+
+	public static void main(String[] args)throws Exception {
+		testadd();
+		//testupdate();
+		//testdelete();
+// testsearch();
+		//testfindbypk();
+
+	}
+
+	private static void testfindbypk() throws Exception{
+		
+		long pk = 1;
+		
+		ProgressBean bean  =  new  ProgressBean();
+		ProgressModel model =  new ProgressModel();
+		
+		bean = model.findbypk(1);
+		
+		System.out.println(bean.getId());
+		System.out.println(bean.getDeveloperName());
+		System.out.println(bean.getWork());
+		System.out.println(bean.getTarget());
+		System.out.println(bean.getLastWeek());
+		System.out.println(bean.getCurrentWeek());
+		System.out.println(bean.getToday());
+		
+	}
+
+	private static void testsearch() throws Exception {
+		ProgressBean bean =  new ProgressBean();
+		ProgressModel model = new ProgressModel();
+		
+		List list = new ArrayList();
+		list= model.Search(bean);
+		Iterator it = list.iterator();
+		while(it.hasNext()) {
+			
+			bean = (ProgressBean)it.next();
+			System.out.print(bean.getId());
+			System.out.println(bean.getDeveloperName());
+			System.out.println(bean.getWork());
+			System.out.println(bean.getTarget());
+			System.out.println(bean.getLastWeek());
+			System.out.println(bean.getCurrentWeek());
+			System.out.println(bean.getToday());
+
+
+		}
+		
+		
+	}
+
+	private static void testdelete() throws Exception {
+		ProgressModel model = new ProgressModel();
+		
+		model.delete(1);
+		
+	}
+
+	private static void testupdate()throws Exception{
+
+		ProgressBean bean = new ProgressBean();
+		ProgressModel model = new ProgressModel();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		bean.setDeveloperName("Anish");
+		bean.setWork("build");
+		bean.setTarget("project-04");
+		bean.setLastWeek("Advance");
+		bean.setCurrentWeek("theory");
+		bean.setToday(sdf.parse("1998-5-4"));
+		 bean.setId(2);
+		
+		model.update(bean);
+		
+	}
+
+	private static void testadd()throws Exception {
+		
+		ProgressBean bean =  new ProgressBean();
+	
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		bean.setId(1);
+		bean.setDeveloperName("Ankush");
+		bean.setWork("core");
+		bean.setTarget("Project-04");
+		bean.setLastWeek("io");
+		bean.setCurrentWeek("Build");
+		bean.setToday(sdf.parse("1111-04-04"));
+		
+		
+		ProgressModel model =  new ProgressModel();
+		
+		model.add(bean);
+		
+	}	
+	
+	
+
+}

@@ -1,0 +1,5 @@
+127.0.0.1 - - [18/Mar/2024:12:20:19 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:12:20:20 +0530] "GET /progressReport/ HTTP/1.1" 200 146
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:12:20:20 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:12:20:23 +0530] "GET /progressReport/ProgressCtl HTTP/1.1" 200 1098
+0:0:0:0:0:0:0:1 - - [18/Mar/2024:12:20:26 +0530] "GET /progressReport/ProgressListCtl HTTP/1.1" 200 1533
